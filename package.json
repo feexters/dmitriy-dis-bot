@@ -1,6 +1,6 @@
 {
   "name": "dmitriy-dis-bot",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.ts",
   "repository": "https://github.com/feexters/dmitriy-dis-bot.git",
   "author": "nepomnachihd@gmail.com",
@@ -10,6 +10,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "axios": "^0.23.0",
     "commitizen": "^4.2.4",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
