@@ -1,0 +1,7 @@
+import { CommandRunOptions } from "types";
+
+export interface Command {
+  name: string;
+  description: string;
+  run: (options: CommandRunOptions) => void;
+}
