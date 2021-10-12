@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/node": "^16.10.2",
+    "cz-conventional-changelog": "3.3.0",
     "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0"
   },
@@ -26,6 +27,11 @@
     ".js, .ts,": {
       "style": "module",
       "parser": "typescript"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
