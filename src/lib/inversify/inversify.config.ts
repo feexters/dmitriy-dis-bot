@@ -4,7 +4,7 @@ import { default as TYPES } from "./types";
 import { Bot } from "classes";
 import { Client, Intents } from "discord.js";
 import { CommandService, FileService, MessageResponder } from "services";
-import { AvatarCommand, WeatherCommand } from "commands";
+import { AvatarCommand, ExchangeRateCommand, WeatherCommand } from "commands";
 import { Command } from "interfaces";
 
 const container = new Container();
@@ -42,5 +42,6 @@ container
 // Commands
 container.bind<Command>(TYPES.Command).to(AvatarCommand);
 container.bind<Command>(TYPES.Command).to(WeatherCommand);
+container.bind<Command>(TYPES.Command).to(ExchangeRateCommand);
 
 export default container;

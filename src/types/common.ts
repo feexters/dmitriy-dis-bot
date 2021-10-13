@@ -51,3 +51,23 @@ export type WeatherResponseDto = {
   name: string;
   cod: number;
 };
+
+export type ExchangeRateResponseDto = {
+  Date: string;
+  PreviousDate: string;
+  PreviousURL: string;
+  Timestamp: string;
+  Valute: {
+    [countryCode: string]: ValuteModelDto;
+  };
+};
+
+export type ValuteModelDto = {
+  ID: string;
+  NumCode: string;
+  CharCode: string;
+  Nominal: number;
+  Name: string;
+  Value: number;
+  Previous: number;
+};
