@@ -1,0 +1,104 @@
+{
+  "USD": {
+    "icon": "flag_us"
+  },
+  "UAH": {
+    "icon": "flag_ua"
+  },
+  "KZT": {
+    "icon": "flag_kz"
+  },
+  "EUR": {
+    "icon": "flag_eu"
+  },
+  "AUD": {
+    "icon": "flag_hm"
+  },
+  "AZN": {
+    "icon": "flag_az"
+  },
+  "GBP": {
+    "icon": "flag_gb"
+  },
+  "AMD": {
+    "icon": "flag_am"
+  },
+  "BYN": {
+    "icon": "flag_by"
+  },
+  "BGN": {
+    "icon": "flag_bg"
+  },
+  "BRL": {
+    "icon": "flag_br"
+  },
+  "HUF": {
+    "icon": "flag_hu"
+  },
+  "HKD": {
+    "icon": "flag_hk"
+  },
+  "DKK": {
+    "icon": "flag_dk"
+  },
+  "INR": {
+    "icon": "flag_in"
+  },
+  "CAD": {
+    "icon": "flag_ca"
+  },
+  "KGS": {
+    "icon": "flag_kg"
+  },
+  "CNY": {
+    "icon": "flag_cn"
+  },
+  "MDL": {
+    "icon": "flag_md"
+  },
+  "NOK": {
+    "icon": "flag_no"
+  },
+  "PLN": {
+    "icon": "flag_pl"
+  },
+  "RON": {
+    "icon": "flag_ro"
+  },
+  "XDR": {
+    "icon": "flag_white"
+  },
+  "SGD": {
+    "icon": "flag_sg"
+  },
+  "TJS": {
+    "icon": "flag_tj"
+  },
+  "TRY": {
+    "icon": "flag_tr"
+  },
+  "TMT": {
+    "icon": "flag_tm"
+  },
+  "UZS": {
+    "icon": "flag_uz"
+  },
+  "CZK": {
+    "icon": "flag_cz"
+  },
+  "SEK": {
+    "icon": "flag_se"
+  },
+  "CHF": {
+    "icon": "flag_ch"
+  },
+  "ZAR": {
+    "icon": "flag_za"
+  },
+  "KRW": {
+    "icon": "flag_kr"
+  },
+  "JPY": {
+    "icon": "flag_jp"
+  }
+}

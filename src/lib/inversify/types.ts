@@ -7,6 +7,7 @@ const TYPES = {
   CommandService: Symbol("CommandService"),
   MessageResponder: Symbol("MessageResponder"),
   Command: Symbol("Command"),
+  Http: Symbol("Http"),
 };
 
 export default TYPES;
