@@ -4,17 +4,20 @@ import { TYPES } from "lib/inversify";
 import { CommandRunOptions } from "types";
 
 enum VolumeStepsType {
-  BB ='bb',
-  NORMAL = 'normal',
+  BB = "bb",
+  NORMAL = "normal",
 }
 @injectable()
 export class VolumeCommand implements Command {
-  public readonly name = "volume";
-  public readonly description = "Установить громкость бота";
+  readonly name = "volume";
+  readonly description = "Установить громкость бота. ";
+  readonly args = "valueOfVolume: number | 'bb' | 'normal'";
+  readonly defaultValue = 100;
+
   private readonly volumeSteps = {
     [VolumeStepsType.NORMAL]: 100,
     [VolumeStepsType.BB]: 10000,
-  }
+  };
 
   constructor(
     @inject(TYPES.Player) private readonly playerController: Player
@@ -31,7 +34,7 @@ export class VolumeCommand implements Command {
       throw new Error("Зайди в хату! Не будь крысой!");
     }
 
-    const volume = args?.length ? args[0] : 100;
+    const volume = args?.length ? args[0] : this.defaultValue;
 
     const guildQueue = this.playerController.player.getQueue(message.guild.id);
 
@@ -47,7 +50,7 @@ export class VolumeCommand implements Command {
       return await guildQueue.setVolume(this.volumeSteps.normal);
     }
 
-    const numberVolume = Number(volume)
+    const numberVolume = Number(volume);
 
     if (isNaN(numberVolume)) {
       throw new Error("Даун! Число пиши!");

@@ -8,6 +8,7 @@ import { injectable } from "inversify";
 export class AvatarCommand implements Command {
   readonly name = "avatar";
   readonly description = "Получить аватарку пользователя";
+  readonly args = "...usersList?";
   private readonly lifeStatus = [
     "Пидр",
     "Петух",

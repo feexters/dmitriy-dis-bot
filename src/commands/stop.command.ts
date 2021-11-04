@@ -5,8 +5,8 @@ import { CommandRunOptions } from "types";
 
 @injectable()
 export class StopCommand implements Command {
-  public readonly name = "stop";
-  public readonly description = "Остановить бота";
+  readonly name = "stop";
+  readonly description = "Остановить бота";
 
   constructor(
     @inject(TYPES.Player) private readonly playerController: Player
