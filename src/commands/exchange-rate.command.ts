@@ -7,17 +7,17 @@ const icons = require("../data/icons-of-countries.json");
 
 @injectable()
 export class ExchangeRateCommand implements Command {
-  public readonly name = "курс";
-  public readonly description =
+  readonly name = "курс";
+  readonly description =
     'Получить текущий курс валюты: "!курс USD EUR "';
 
-  private async _getCashMessage(names: string[]) {
+  private async getCashMessage(names: string[]) {
     const {
       data: { Valute: currentRate },
     } = await getExchangeRate();
     const cashMessage = new MessageEmbed();
 
-    const findKeys = this._searchCountries(names, Object.values(currentRate));
+    const findKeys = this.searchCountries(names, Object.values(currentRate));
 
     return cashMessage
       .setColor("#9500df")
@@ -47,7 +47,7 @@ export class ExchangeRateCommand implements Command {
       .setFooter("© ЦБ России");
   }
 
-  private _searchCountries = (values: string[], countriesList: ValuteModelDto[]) => {
+  private searchCountries = (values: string[], countriesList: ValuteModelDto[]) => {
     const findKeys = values.reduce<string[]>((accum, name) => {
       const countries = countriesList.reduce<string[]>((list, country) => {
         if (country.CharCode.toLowerCase().includes(name.toLowerCase())) {
@@ -69,10 +69,10 @@ export class ExchangeRateCommand implements Command {
     try {
       if (!args?.length) {
         message.channel.send({
-          embeds: [await this._getCashMessage(["USD", "EUR", "KZT", "UAH"])],
+          embeds: [await this.getCashMessage(["USD", "EUR", "KZT", "UAH"])],
         });
       } else {
-        message.channel.send({ embeds: [await this._getCashMessage(args)] });
+        message.channel.send({ embeds: [await this.getCashMessage(args)] });
       }
     } catch (error) {
       console.log(error);

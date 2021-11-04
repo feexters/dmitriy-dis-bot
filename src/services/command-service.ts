@@ -4,16 +4,10 @@ import { TYPES } from "lib/inversify";
 
 @injectable()
 export class CommandService {
-  public readonly prefix: string;
-  private commands: Command[];
-
   constructor(
-    @inject(TYPES.Prefix) prefix: string,
-    @multiInject(TYPES.Command) commands: Command[]
-  ) {
-    this.prefix = prefix;
-    this.commands = commands;
-  }
+    @inject(TYPES.Prefix) readonly prefix: string,
+    @multiInject(TYPES.Command) private commands: Command[]
+  ) {}
 
   getCommand(commandName: string) {
     return this.commands.find(item => item.name === commandName)

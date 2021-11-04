@@ -3,7 +3,7 @@ import { injectable } from "inversify";
 
 @injectable()
 export class FileService {
-  public readdir(
+  readdir(
     path: PathLike,
     options:
       | {
