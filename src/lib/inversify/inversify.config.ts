@@ -11,6 +11,7 @@ import {
   PlayCommand,
   SkipCommand,
   StopCommand,
+  SeekCommand,
 } from "commands";
 import { Command, Player, MessageHandler } from "interfaces";
 
@@ -58,5 +59,6 @@ container.bind<Command>(TYPES.Command).to(ExchangeRateCommand);
 container.bind<Command>(TYPES.Command).to(PlayCommand);
 container.bind<Command>(TYPES.Command).to(SkipCommand);
 container.bind<Command>(TYPES.Command).to(StopCommand);
+container.bind<Command>(TYPES.Command).to(SeekCommand);
 
 export default container;
