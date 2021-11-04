@@ -3,10 +3,18 @@ import { inject, injectable } from "inversify";
 import { TYPES } from "lib/inversify";
 import { CommandRunOptions } from "types";
 
+enum VolumeStepsType {
+  BB ='bb',
+  NORMAL = 'normal',
+}
 @injectable()
 export class VolumeCommand implements Command {
   public readonly name = "volume";
   public readonly description = "Установить громкость бота";
+  private readonly volumeSteps = {
+    [VolumeStepsType.NORMAL]: 100,
+    [VolumeStepsType.BB]: 10000,
+  }
 
   constructor(
     @inject(TYPES.Player) private readonly playerController: Player
@@ -23,11 +31,7 @@ export class VolumeCommand implements Command {
       throw new Error("Зайди в хату! Не будь крысой!");
     }
 
-    const volume = args?.length ? Number(args[0]) : 0
-
-    if (isNaN(volume)) {
-      throw new Error("Даун! Число пиши!");
-    }
+    const volume = args?.length ? args[0] : 100;
 
     const guildQueue = this.playerController.player.getQueue(message.guild.id);
 
@@ -35,6 +39,20 @@ export class VolumeCommand implements Command {
       throw new Error();
     }
 
-    await guildQueue.setVolume(volume);
+    if (volume === VolumeStepsType.BB) {
+      return await guildQueue.setVolume(this.volumeSteps.bb);
+    }
+
+    if (volume === VolumeStepsType.NORMAL) {
+      return await guildQueue.setVolume(this.volumeSteps.normal);
+    }
+
+    const numberVolume = Number(volume)
+
+    if (isNaN(numberVolume)) {
+      throw new Error("Даун! Число пиши!");
+    }
+
+    await guildQueue.setVolume(numberVolume);
   }
 }
