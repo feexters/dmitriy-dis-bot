@@ -9,6 +9,9 @@
     "start": "node -r ts-node/register -r tsconfig-paths/register src/index.ts",
     "commit": "cz"
   },
+  "engines": {
+    "node": ">=16.6"
+  },
   "dependencies": {
     "axios": "^0.23.0",
     "commitizen": "^4.2.4",
