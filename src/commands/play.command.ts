@@ -5,8 +5,9 @@ import { TYPES } from "lib/inversify";
 
 @injectable()
 export class PlayCommand implements Command {
-  public readonly name = "play";
-  public readonly description = "Воспроизвеcти видео из youtube";
+  readonly name = "play";
+  readonly description = "Воспроизвеcти песню или поставить ее в очередь (Supports: YouTube, Spotify)";
+  readonly args = "...listOfLinks";
 
   constructor(
     @inject(TYPES.Player) private readonly playerController: Player

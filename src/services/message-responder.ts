@@ -31,7 +31,7 @@ export class MessageResponder implements MessageHandler {
       if (command) {
         await command.run({ client, message, args });
       } else {
-        throw new Error('Команда не найдена...')
+        throw new Error('Команда не найдена!')
       }
     } catch (e) {
       const errorMessage =

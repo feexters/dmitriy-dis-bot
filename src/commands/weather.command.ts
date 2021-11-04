@@ -8,6 +8,8 @@ import { getCurrentWeather } from "./api";
 export class WeatherCommand implements Command {
   readonly name = "weather";
   readonly description = "Погода в любом (нормальном) населенном пункте.";
+  readonly syntax = "nameOfCity?";
+  readonly defaultValue = "Omsk";
   private readonly K = 273.15;
 
   async getWeatherMessage(city: string) {
@@ -41,7 +43,7 @@ export class WeatherCommand implements Command {
     try {
       if (!args?.length) {
         message.channel.send({
-          embeds: [await this.getWeatherMessage("Omsk")],
+          embeds: [await this.getWeatherMessage(this.defaultValue)],
         });
       } else {
         message.channel.send({

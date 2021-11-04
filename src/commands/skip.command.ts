@@ -5,8 +5,8 @@ import { CommandRunOptions } from "types";
 
 @injectable()
 export class SkipCommand implements Command {
-  public readonly name = "skip";
-  public readonly description = "Пропустить трек";
+  readonly name = "skip";
+  readonly description = "Пропустить трек";
 
   constructor(
     @inject(TYPES.Player) private readonly playerController: Player

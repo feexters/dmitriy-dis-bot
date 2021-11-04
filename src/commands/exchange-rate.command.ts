@@ -8,8 +8,9 @@ const icons = require("../data/icons-of-countries.json");
 @injectable()
 export class ExchangeRateCommand implements Command {
   readonly name = "курс";
-  readonly description =
-    'Получить текущий курс валюты: "!курс USD EUR "';
+  readonly description = "Получить текущий курс валюты";
+  readonly defaultValue = ["USD", "EUR", "KZT", "UAH"];
+  readonly args = "...listOfCountries?";
 
   private async getCashMessage(names: string[]) {
     const {
@@ -47,7 +48,10 @@ export class ExchangeRateCommand implements Command {
       .setFooter("© ЦБ России");
   }
 
-  private searchCountries = (values: string[], countriesList: ValuteModelDto[]) => {
+  private searchCountries = (
+    values: string[],
+    countriesList: ValuteModelDto[]
+  ) => {
     const findKeys = values.reduce<string[]>((accum, name) => {
       const countries = countriesList.reduce<string[]>((list, country) => {
         if (country.CharCode.toLowerCase().includes(name.toLowerCase())) {
@@ -69,7 +73,7 @@ export class ExchangeRateCommand implements Command {
     try {
       if (!args?.length) {
         message.channel.send({
-          embeds: [await this.getCashMessage(["USD", "EUR", "KZT", "UAH"])],
+          embeds: [await this.getCashMessage(this.defaultValue)],
         });
       } else {
         message.channel.send({ embeds: [await this.getCashMessage(args)] });
@@ -80,7 +84,7 @@ export class ExchangeRateCommand implements Command {
     }
   }
 
-  private _rounded (number: number) {
+  private _rounded(number: number) {
     return Math.round(number * 100) / 100;
-  };
+  }
 }

@@ -5,8 +5,10 @@ import { CommandRunOptions } from "types";
 
 @injectable()
 export class SeekCommand implements Command {
-  public readonly name = "seek";
-  public readonly description = "Выбрать время на треке";
+  readonly name = "seek";
+  readonly description = "Выбрать время на треке";
+  readonly args = "time?";
+  readonly defaultValue = 0;
 
   constructor(
     @inject(TYPES.Player) private readonly playerController: Player
@@ -23,7 +25,7 @@ export class SeekCommand implements Command {
       throw new Error("Зайди в хату! Не будь крысой!");
     }
 
-    const time = args?.length ? Number(args[0]) : 0
+    const time = args?.length ? Number(args[0]) : this.defaultValue;
 
     if (isNaN(time)) {
       throw new Error("Даун! Число пиши!");
