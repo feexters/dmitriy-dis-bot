@@ -6,9 +6,8 @@ import { getCurrentWeather } from "./api";
 
 @injectable()
 export class WeatherCommand implements Command {
-  public readonly name = "weather";
-  public readonly description =
-    "Погода в любом (нормальном) населенном пункте.";
+  readonly name = "weather";
+  readonly description = "Погода в любом (нормальном) населенном пункте.";
   private readonly K = 273.15;
 
   async getWeatherMessage(city: string) {

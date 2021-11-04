@@ -5,9 +5,10 @@ const TYPES = {
   FileService: Symbol("FileService"),
   Prefix: Symbol("Prefix"),
   CommandService: Symbol("CommandService"),
-  MessageResponder: Symbol("MessageResponder"),
+  MessageHandler: Symbol("MessageHandler"),
   Command: Symbol("Command"),
   Http: Symbol("Http"),
+  Player: Symbol("Player"),
 };
 
 export default TYPES;

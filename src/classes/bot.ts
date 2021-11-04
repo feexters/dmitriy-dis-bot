@@ -1,23 +1,15 @@
 import { Client, Message } from "discord.js";
 import { inject, injectable } from "inversify";
 import { TYPES } from "lib/inversify";
-import { MessageResponder } from "services";
+import { MessageHandler } from "../interfaces/message-handler";
 
 @injectable()
 export class Bot {
-  private client: Client;
-  private readonly token: string;
-  private readonly messageResponder: MessageResponder;
-
   constructor(
-    @inject(TYPES.Client) client: Client,
-    @inject(TYPES.Token) token: string,
-    @inject(TYPES.MessageResponder) messageResponder: MessageResponder
-  ) {
-    this.client = client;
-    this.token = token;
-    this.messageResponder = messageResponder;
-  }
+    @inject(TYPES.Client) private readonly client: Client,
+    @inject(TYPES.Token) private readonly token: string,
+    @inject(TYPES.MessageHandler) private readonly messageResponder: MessageHandler
+  ) {}
 
   public listen() {
     this.client.on("messageCreate", (message: Message) => {
