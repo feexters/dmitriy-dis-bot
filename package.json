@@ -6,7 +6,7 @@
   "author": "nepomnachihd@gmail.com",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node --project tsconfig.json -r tsconfig-paths/register src/index.ts",
+    "start": "node -r ts-node/register -r tsconfig-paths/register src/index.ts",
     "commit": "cz"
   },
   "dependencies": {
