@@ -6,8 +6,11 @@
   "author": "nepomnachihd@gmail.com",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node --project tsconfig.json -r tsconfig-paths/register src/index.ts",
+    "start": "node -r ts-node/register -r tsconfig-paths/register src/index.ts",
     "commit": "cz"
+  },
+  "engines": {
+    "node": ">=16.6"
   },
   "dependencies": {
     "axios": "^0.23.0",
@@ -17,13 +20,13 @@
     "dotenv": "^10.0.0",
     "inversify": "^5.1.1",
     "reflect-metadata": "^0.1.13",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "ts-node": "^10.2.1",
+    "tsconfig-paths": "^3.11.0"
   },
   "devDependencies": {
     "@types/node": "^16.10.2",
-    "cz-conventional-changelog": "3.3.0",
-    "ts-node": "^10.2.1",
-    "tsconfig-paths": "^3.11.0"
+    "cz-conventional-changelog": "3.3.0"
   },
   "importSort": {
     ".js, .ts,": {
