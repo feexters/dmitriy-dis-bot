@@ -2,7 +2,7 @@ import { inject, injectable } from "inversify";
 import { Client } from "discord.js";
 import { TYPES } from "lib/inversify";
 import { Player } from "interfaces";
-import { Player as PlayerDiscord } from "discord-music-player";
+import { Player as PlayerDiscord } from "discord-player";
 
 @injectable()
 export class PlayerController implements Player {
@@ -14,8 +14,7 @@ export class PlayerController implements Player {
 
   init() {
     this.player = new PlayerDiscord(this.client, {
-      leaveOnEmpty: true,
-      timeout: 180000,
+      connectionTimeout: 180000,
     });
   }
 }
