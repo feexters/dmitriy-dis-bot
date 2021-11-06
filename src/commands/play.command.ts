@@ -6,7 +6,8 @@ import { TYPES } from "lib/inversify";
 @injectable()
 export class PlayCommand implements Command {
   readonly name = "play";
-  readonly description = "Воспроизвеcти песню или поставить ее в очередь (Supports: YouTube, Spotify)";
+  readonly description =
+    "Воспроизвеcти песню или поставить ее в очередь (Supports: YouTube, Spotify)";
   readonly args = "...listOfLinks";
 
   constructor(
@@ -34,8 +35,9 @@ export class PlayCommand implements Command {
 
     await queue.join(message.member.voice.channel);
 
-    await queue.play(args.join(" ")).catch((_) => {
+    await queue.play(args.join(" ")).catch((error) => {
       if (!guildQueue) queue.stop();
+      throw new Error(error);
     });
   }
 }

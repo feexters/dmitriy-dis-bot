@@ -14,7 +14,8 @@ export class PlayerController implements Player {
 
   init() {
     this.player = new PlayerDiscord(this.client, {
-      leaveOnEmpty: false,
+      leaveOnEmpty: true,
+      timeout: 180000,
     });
   }
 }
