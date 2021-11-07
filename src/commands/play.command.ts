@@ -2,6 +2,7 @@ import { Command, Player } from "interfaces";
 import { CommandRunOptions } from "types";
 import { inject, injectable } from "inversify";
 import { TYPES } from "lib/inversify";
+import { LEAVE_TIMEOUT_MS } from 'constant';
 
 @injectable()
 export class PlayCommand implements Command {
@@ -36,10 +37,14 @@ export class PlayCommand implements Command {
         highWaterMark: 1 << 25,
         dlChunkSize: 0,
       },
+      leaveOnEnd: false,
+      leaveOnEmptyCooldown: LEAVE_TIMEOUT_MS,
       metadata: {
         channel: voiceChannel,
       },
     });
+
+    this.playerController.onActive();
 
     try {
       if (!queue.connection) await queue.connect(voiceChannel);
@@ -54,9 +59,11 @@ export class PlayCommand implements Command {
       })
       .then((x) => x.tracks[0]);
 
+
     if (!track) {
-      throw new Error(`❌ | Track **${args[0]}** not found!`);
+      throw new Error(`❌ | Музыка **${args[0]}** не найдена!`);
     }
+
     queue.play(track);
   }
 }
