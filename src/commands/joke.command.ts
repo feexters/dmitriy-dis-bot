@@ -10,7 +10,7 @@ export class JokeCommand implements Command {
   readonly name = "анекдот";
   readonly description = "Рандомный анекдот";
 
-  private readonly availableTypes = new Array(18).fill(undefined).map((_, index) => index + 1)
+  private readonly availableTypes = [1, 11]
 
   async getJokeMessage(type: number) {
     const jokeResponse = await getJoke(type);
