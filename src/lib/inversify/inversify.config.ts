@@ -13,6 +13,7 @@ import {
   StopCommand,
   SeekCommand,
   VolumeCommand,
+  JokeCommand,
 } from "commands";
 import { Command, Player, MessageHandler } from "interfaces";
 
@@ -62,5 +63,6 @@ container.bind<Command>(TYPES.Command).to(SkipCommand);
 container.bind<Command>(TYPES.Command).to(StopCommand);
 container.bind<Command>(TYPES.Command).to(SeekCommand);
 container.bind<Command>(TYPES.Command).to(VolumeCommand);
+container.bind<Command>(TYPES.Command).to(JokeCommand);
 
 export default container;

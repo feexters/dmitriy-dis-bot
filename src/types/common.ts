@@ -71,3 +71,7 @@ export type ValuteModelDto = {
   Value: number;
   Previous: number;
 };
+
+export type JokeResponseDto = {
+  content: string
+}
